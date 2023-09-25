@@ -20,8 +20,8 @@ const config = require('./config/config');
 require('dotenv').config();
 const PORT = config.PORT || 4000;
 
-// app.use(cors({credentials: true, methods: "GET,HEAD,PUT,PATCH,POST,DELETE", origin: ['http://localhost:3000', 'http://localhost:4000', 'https://seazux-frontend.onrender.com']}));
-app.use(cors());// Use this after the variable declaration
+app.use(cors({credentials: true, methods: "GET,HEAD,PUT,PATCH,POST,DELETE", origin: ['http://localhost:3000', 'http://localhost:4000', 'https://seazux-frontend.onrender.com']}));
+// app.use(cors());// Use this after the variable declaration
 // Datebase Connection
 connectToDb();
 // const corsOptions ={
