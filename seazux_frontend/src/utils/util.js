@@ -1,0 +1,1 @@
+export const backendUrl = "https://seazux-backend.onrender.com";

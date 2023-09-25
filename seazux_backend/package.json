@@ -1,0 +1,41 @@
+{
+  "name": "seazux_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-rate-limit": "^6.9.0",
+    "helmet": "^7.0.0",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^5.13.19",
+    "morgan": "^1.10.0",
+    "morgan-json": "^1.1.0",
+    "nanoid": "^4.0.2",
+    "node-device-detector": "^2.0.16",
+    "pdfkit": "^0.13.0",
+    "qrcode": "^1.5.3",
+    "shortid": "^2.2.15",
+    "validator": "^13.9.0",
+    "winston": "^3.10.0",
+    "yup": "^1.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

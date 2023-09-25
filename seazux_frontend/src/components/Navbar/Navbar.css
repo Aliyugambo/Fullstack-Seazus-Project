@@ -1,0 +1,123 @@
+
+.navbar{
+  background-color: #495057;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  /* position: sticky; */
+  /* top: 0; */
+  /* z-index: 1; */
+  width: 100%;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.145); */
+}
+
+.navbar__logo{
+  padding-left: 10px;
+}
+/* .navbar__logo > h1{
+  color: rgb(255, 63, 63);
+  font-size: 2.5rem;
+  font-weight: 400;
+  font-family: 'forte';
+} */
+
+.navbar__logo #logo-u{
+  font-size: 2rem;
+  width: 10rem
+}
+
+.navbar__links{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* width: 100%; */
+  /* display: none; */
+  /* border: 1px solid red; */
+}
+
+.navbar__links ul{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar__links ul li{
+  list-style: none;
+  padding: 10px 15px;
+  font-size: 2rem;
+}
+
+.navbar__links ul li a{
+  text-decoration: none;
+}
+
+.navbar__links ul li a:hover{
+  color: #9880ff;
+}
+
+
+
+/* --------------------RESPONSIVE-------------------------------------------- */
+
+@media (max-width:1200px){
+
+  .navbar{
+    background-color:#03031f
+  }
+  .navbar__links ul{
+
+  }
+
+
+
+
+}
+@media (max-width:670px){
+
+
+
+  .showUrl{
+     
+      width: 80%;
+      margin-top: 1rem;
+      padding-bottom: 1rem;
+  }
+
+  .url-form input{
+      width: 23rem;
+      margin-bottom: 1rem;
+  }
+
+  .plans-container-home{
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .plan-card-home{
+      width: 70%;
+      margin-bottom: 20px;
+  }
+}
+
+
+@media (max-width:500px){
+
+  .showUrl{
+     
+      width: 80%;
+      margin-top: 1rem;
+      padding-bottom: 1rem;
+  }
+
+  .url-form input{
+      width: 23rem;
+      margin-bottom: 1rem;
+  }
+
+  .plan-card-home{
+      width: 90%;
+      margin-bottom: 20px;
+  }
+}
