@@ -41,7 +41,7 @@ export const loginUserEmail = ({email, password}) => async (dispatch) => {
     
             
     
-            const  { data } = await axios.post(`https://seazux-backend.onrender.comauth-email/login`, {email, password}, {
+            const  { data } = await axios.post(`https://seazux-backend.onrender.com/auth-email/login`, {email, password}, {
                 headers: {
                     'Content-Type': 'application/json'
                 },

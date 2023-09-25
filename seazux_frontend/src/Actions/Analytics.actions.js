@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { backendUrl } from '../utils/util';
+// import { backendUrl } from '../utils/util';
 // const backendUrl = 'https://shy-teal-worm-coat.cyclic.cloud';
 // const backendUrl = 'http://localhost:4000';
 
@@ -11,7 +11,7 @@ export const getAnalytics = () => async(dispatch)=> {
         type: 'GetAnalyticsRequest'
     })
 
-    const {data} = await axios.get(`${backendUrl}/api/analytics/getAll`, {
+    const {data} = await axios.get(`https://seazux-backend.onrender.com/api/analytics/getAll`, {
         withCredentials: true
     })
 
@@ -36,7 +36,7 @@ export const getUrlAnalytics = (hash) => async(dispatch)=> {
     })
 
 
-    const {data} = await axios.get(`${backendUrl}/api/analytics/url/${hash}`, {
+    const {data} = await axios.get(`https://seazux-backend.onrender.com/api/analytics/url/${hash}`, {
         withCredentials: true
     })
 
@@ -62,16 +62,16 @@ export const getClicks = (hash, duration) => async(dispatch)=> {
         let url = "";
 
         if(duration && hash){
-            url = `${backendUrl}/api/analytics/clicks?hash=${hash}&duration=${duration}`
+            url = `https://seazux-backend.onrender.com/api/analytics/clicks?hash=${hash}&duration=${duration}`
         }
         if(duration && !hash){
-            url = `${backendUrl}/api/analytics/clicks?duration=${duration}`
+            url = `https://seazux-backend.onrender.com/api/analytics/clicks?duration=${duration}`
         }
         if(!duration && hash){
-            url = `${backendUrl}/api/analytics/clicks?hash=${hash}`
+            url = `https://seazux-backend.onrender.com/api/analytics/clicks?hash=${hash}`
         }
         if(!duration && !hash){
-            url = `${backendUrl}/api/analytics/clicks`
+            url = `https://seazux-backend.onrender.com/api/analytics/clicks`
         }
 
         const {data} = await axios.get(url, {

@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { backendUrl } from '../utils/util';
+
+// import { backendUrl } from '../utils/util';
 // const backendUrl = 'https://shy-teal-worm-coat.cyclic.cloud';
 // const backendUrl = '${backendUrl}';
 
@@ -21,7 +22,7 @@ export const getMyUrls = (reqPage, reqSearch)=> async(dispatch) => {
             type: 'getMyUrlsRequest'
         })
 
-        const { data }  = await axios.get(`${backendUrl}/api/v1/url/my-urls?page=${page}&search=${searchText}`,{
+        const { data }  = await axios.get(`https://seazux-backend.onrender.com/api/v1/url/my-urls?page=${page}&search=${searchText}`,{
         // const {data}  = await axios.get(`${backendUrl}/api/v1/url/my-urls`,{
             withCredentials: true,
         });
@@ -46,7 +47,7 @@ export const createUrl = (urlData)=> async(dispatch) => {
             type: 'createUrlRequest'
         })
 
-        const { data } = await axios.post(`${backendUrl}/api/v1/url/login-short`,{
+        const { data } = await axios.post(`https://seazux-backend.onrender.com/api/v1/url/login-short`,{
             full: urlData.full
         }, {
             withCredentials: true
@@ -74,7 +75,7 @@ export const viewUrl = (hash)=> async(dispatch) => {
             type: 'viewUrlRequest'
         })
 
-        const {data} = await axios.get(`${backendUrl}/api/v1/url/view/${hash}`,{
+        const {data} = await axios.get(`https://seazux-backend.onrender.com/api/v1/url/view/${hash}`,{
             withCredentials: true
         });
 
@@ -99,7 +100,7 @@ export const deleteUrlReq = (hash)=> async(dispatch) => {
             type: 'deleteUrlRequest'
         })
 
-        const {data} = await axios.delete(`${backendUrl}/api/v1/url/delete/${hash}`,{
+        const {data} = await axios.delete(`https://seazux-backend.onrender.com/api/v1/url/delete/${hash}`,{
             withCredentials: true
         });
 
@@ -128,7 +129,7 @@ export const editUrl = (hash, urlData) => async(dispatch)=>{
         console.log(urlData)
         console.log(hash)
 
-        const {data} = await axios.put(`${backendUrl}/api/v1/url/edit/${hash}`,{
+        const {data} = await axios.put(`https://seazux-backend.onrender.com/api/v1/url/edit/${hash}`,{
             urlData
         },{
             withCredentials: true
