@@ -98,7 +98,8 @@ export const loadUser = () => async (dispatch) => {
 
         const { data } = await axios.get('https://seazux-backend.onrender.com/auth-email/user/profile',{
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
             },
             withCredentials: 'true'
         })

@@ -1,13 +1,13 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-require('dotenv').config()
+require('dotenv').config();
 // const config = require('../config/config');
 exports.isAuthenticated = async (req, res, next) => {
     try {
 
         console.log(req.headers);
-        const {token}  = req.cookies;
-        // const token = req.headers.authorization.split(" ")[1] || req.cookies.token;
+        // const {token}  = req.cookies;
+        const token = req.headers.authorization.split(" ")[1] || req.cookies.token;
         console.log(token)
         if (!token) {
             return res.status(401).json({
