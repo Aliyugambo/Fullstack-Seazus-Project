@@ -39,7 +39,7 @@ const Login = () => {
     // }
 
     useEffect(()=>{
-        // console.log(user);
+        console.log(user);
         if(user) {
             navigate('/v/dashboard-home');
             // console.log(user);
