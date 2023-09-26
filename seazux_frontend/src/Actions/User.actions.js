@@ -13,7 +13,8 @@ export const registerUserEmail = ({username, email, password}) => async (dispatc
         })
         const {data}  = await axios.post('https://seazux-backend.onrender.com/auth-email/register', {username, email, password}, {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
             },
             withCredentials: 'true'
         })
@@ -43,7 +44,8 @@ export const loginUserEmail = ({email, password}) => async (dispatch) => {
     
             const  { data } = await axios.post('https://seazux-backend.onrender.com/auth-email/login', {email, password}, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json'
                 },
                 withCredentials: 'true'
             })
@@ -72,7 +74,8 @@ export const loagout = () => async (dispatch) => {
 
         const { data } = await axios.get('https://seazux-backend.onrender.com/auth-email/logout', {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
             },
             withCredentials: 'true'
         })
@@ -99,7 +102,7 @@ export const loadUser = () => async (dispatch) => {
         const { data } = await axios.get('https://seazux-backend.onrender.com/auth-email/user/profile',{
             headers: {
                 'Content-Type': 'application/json',
-                Accept: 'application/json',
+                Accept: 'application/json'
             },
             withCredentials: 'true'
         })
@@ -125,7 +128,8 @@ export const deleteAccount = () => async (dispatch) => {
 
         const  { data } = await axios.delete('https://seazux-backend.onrender.com/auth-email/user/deleteAccount', {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
             },
             withCredentials: 'true'
         })
