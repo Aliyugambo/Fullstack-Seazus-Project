@@ -145,7 +145,7 @@
 
 import axios from 'axios';
 
-// import { backendUrl } from '../utils/util';
+import { backendUrl } from '../utils/util';
 
 export const registerUserEmail = ({username, email, password}) => async (dispatch) => {
 
@@ -163,7 +163,7 @@ export const registerUserEmail = ({username, email, password}) => async (dispatc
         }
 
 
-        const { data } = await axios.post("//seazux-backend.onrender.com/auth-email/register", {username, email, password}, config);
+        const { data } = await axios.post(`${backendUrl}/auth-email/register`, {username, email, password}, config);
 
         dispatch({
             type: 'RegisterSuccess',
@@ -192,7 +192,7 @@ export const loginUserEmail = ({email, password}) => async (dispatch) => {
                 withCredentials: 'true'
             }
     
-            const { data } = await axios.post("//seazux-backend.onrender.com/auth-email/login", {email, password}, config);
+            const { data } = await axios.post(`${backendUrl}/auth-email/login`, {email, password}, config);
     
             dispatch({
                 type: 'LoginSuccess',
@@ -221,7 +221,7 @@ export const loagout = () => async (dispatch) => {
             withCredentials: 'true'
         }
 
-        const { data } = await axios.get("//seazux-backend.onrender.com/auth-email/logout", config);
+        const { data } = await axios.get(`${backendUrl}/auth-email/logout`, config);
 
         dispatch({
             type: 'LogoutSuccess',
@@ -249,7 +249,7 @@ export const loadUser = () => async (dispatch) => {
             withCredentials: 'true'
         }
 
-        const { data } = await axios.get("//seazux-backend.onrender.com/auth-email/user/profile", config);
+        const { data } = await axios.get(`${backendUrl}/auth-email/user/profile`, config);
 
         dispatch({
             type: 'LoadUserSuccess',
@@ -277,7 +277,7 @@ export const deleteAccount = () => async (dispatch) => {
             withCredentials: 'true'
         }
 
-        const { data } = await axios.delete("//seazux-backend.onrender.com/auth-email/user/deleteAccount", config);
+        const { data } = await axios.delete(`${backendUrl}/auth-email/user/deleteAccount`, config);
 
         dispatch({
             type: 'DeleteAccountSuccess',
