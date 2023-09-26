@@ -16,12 +16,12 @@ const path = require('path');
 
 var fs = require("fs");
 var https = require("https");
-const config = require('./config/config');
+// const config = require('./config/config');
 require('dotenv').config();
-const PORT = config.PORT || 4000;
+const PORT = process.env.PORT || 4000;
 
-// app.use(cors({credentials: true, methods: "GET,HEAD,PUT,PATCH,POST,DELETE", origin: ['http://localhost:3000', 'http://localhost:4000', 'https://seazux-frontend.onrender.com']}));
-app.use(cors({credentials: true}));// Use this after the variable declaration
+app.use(cors({credentials: true, methods: "GET,HEAD,PUT,PATCH,POST,DELETE", origin: ['http://localhost:3000', 'http://localhost:4000', 'https://seazux-frontend.onrender.com']}));
+// app.use(cors({credentials: true}));// Use this after the variable declaration
 
 // Datebase Connection
 connectToDb();
@@ -73,9 +73,9 @@ app.use((err, req, res, next) => {
 });
 
 
-app.use(express.static(path.join(__dirname, "seazux_frontend/build")));
+app.use(express.static(path.join(__dirname, "../seazux_frontend/build")));
 app.get("/v/*", (req,res)=>{
-    res.sendFile(path.resolve(__dirname, "seazux_frontend/build/index.html"));
+    res.sendFile(path.resolve(__dirname, "../seazux_frontend/build/index.html"));
 });
 
 //Connect to the database before listening
