@@ -31,7 +31,7 @@ const Signup = () => {
     useEffect(() => {
         if(status === 'success'){
             dispatch({type: 'CLEAR_STATUS'})
-            navigate('/v/dashboard-home');
+            navigate('/dashboard-home');
         }
         if(error){
             setTimeout(() => {
@@ -43,11 +43,11 @@ const Signup = () => {
                 dispatch({type: 'CLEAR_MESSAGES'})
             }, 5000);
         }
-    }, [error, message, status]) // eslint-disable-line react-hooks/exhaustive-deps
+    }, [error, message, status])
 
     useEffect(()=>{
-        if(user) navigate('/v/dashboard-home');
-    },[user,message]) // eslint-disable-line react-hooks/exhaustive-deps
+        if(user) navigate('/dashboard-home');
+    },[user])
 
     // const handleGoogleSignup = () => {
     //     window.location.href = 'https://urily.onrender.com/auth/google';
@@ -74,7 +74,7 @@ const Signup = () => {
                         <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" name="password" id="password" placeholder="Password" />
                     </div>
                     <button type="submit">Register</button>
-                    <p>Already have an account? <span><Link to="/v/login">Login</Link></span></p>
+                    <p>Already have an account? <span><Link to="/login">Login</Link></span></p>
                 </form>
             </div>
             {/* <p id='or'>or</p>
