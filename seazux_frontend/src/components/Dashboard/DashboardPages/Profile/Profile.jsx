@@ -1,8 +1,15 @@
-import React,{useState, useEffect} from 'react'
-import './Profile.css'
+import React,{useState, useEffect} from 'react';
+
 import dateFormat from "dateformat";
 
+import { useSelector, useDispatch } from 'react-redux';
+
 import {useNavigate} from 'react-router-dom';
+
+import {deleteAccount} from '../../../../Actions/User.actions';
+import edit from '../../../../images/edit.png';
+
+import './Profile.css';
 
 const Profile = () => {
 
