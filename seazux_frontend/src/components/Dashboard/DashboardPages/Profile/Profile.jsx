@@ -1,16 +1,8 @@
-import React,{useState, useEffect} from 'react';
-
+import React,{useState, useEffect} from 'react'
+import './Profile.css'
 import dateFormat from "dateformat";
 
-import { useSelector, useDispatch } from 'react-redux';
-
 import {useNavigate} from 'react-router-dom';
-
-import {deleteAccount} from '../../../../Actions/User.actions';
-// import deleteIcon from '../../../../images/delete.png';
-import edit from '../../../../images/edit.png';
-
-import './Profile.css';
 
 const Profile = () => {
 
@@ -29,10 +21,10 @@ const Profile = () => {
 
   useEffect(()=>{
     if(!user){
-      navigate('/v/login');
+      navigate('/login');
     }
-  },[user])  // eslint-disable-line react-hooks/exhaustive-deps
-
+  },[user])
+  
   return (
     <div className='profile page-container'>
       <div className="heading">
