@@ -1,11 +1,14 @@
 import React,{useState, useEffect} from 'react';
-// import GoogleButton from 'react-google-button';
-import './Login-Register.css';
-import { loginUserEmail, loadUser } from '../../Actions/User.actions';
+
 import { useDispatch, useSelector } from 'react-redux';
+
 import {useNavigate, Link} from 'react-router-dom';
+
 import Alert from '../Alert/Alert';
 import Loader from '../Loader/Loader';
+import { loginUserEmail, loadUser } from '../../Actions/User.actions';
+
+import './Login-Register.css';
 
 const Login = () => {
 
@@ -74,7 +77,7 @@ const Login = () => {
                     <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" name="password" id="password" placeholder="Password" />
                 </div>
                 <button type="submit">Login</button>
-                <p>Not Registered? <span><Link to="/signup">Signup</Link></span></p>
+                <p>Not Registered? <span><Link to="/v/signup">Signup</Link></span></p>
             </form>
         </div>
         {/* <p id='or'>or</p>
