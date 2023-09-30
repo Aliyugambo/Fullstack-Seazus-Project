@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import dateFormat from "dateformat";
-import { useParams, useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { viewUrl, deleteUrlReq } from '../../../../Actions/Url.actions'
-import { getUrlAnalytics, getClicks } from '../../../../Actions/Analytics.actions'
-import Analytics from '../../Analytics/Analytics'
+
 import GenrateQR from '../../../GenrateQR/GenrateQR';
 import './ViewURL.css'
 import '../../../common.css'
@@ -40,7 +36,7 @@ const ViewURL = () => {
         dispatch(viewUrl(hash));
         dispatch(getUrlAnalytics(hash));
         dispatch(getClicks(hash, 'today'))
-    }, [dispatch]) // eslint-disable-line react-hooks/exhaustive-deps
+    }, [dispatch])
 
     useEffect(() => {
         if (url) {
@@ -79,7 +75,7 @@ const ViewURL = () => {
         dispatch({ type: "CLEAR_MESSAGES" });
         dispatch({ type: "CLEAR_ERRORS" });
 
-    }, [deleteUrlMessage, deleteUrlError, urlMessage, urlError])  // eslint-disable-line react-hooks/exhaustive-deps
+    }, [deleteUrlMessage, deleteUrlError, urlMessage, urlError])
 
     const handleDeleteUrl = () => {
 
@@ -105,7 +101,6 @@ const ViewURL = () => {
     const handleStatusChange = () => {
         setStatus(!status);
     }
-
     return (
         <div className='viewUrl page-container'>
             {

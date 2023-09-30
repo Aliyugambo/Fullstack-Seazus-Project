@@ -31,7 +31,7 @@ const Signup = () => {
     useEffect(() => {
         if(status === 'success'){
             dispatch({type: 'CLEAR_STATUS'})
-            navigate('/dashboard-home');
+            navigate('/v/dashboard-home');
         }
         if(error){
             setTimeout(() => {
@@ -46,7 +46,7 @@ const Signup = () => {
     }, [error, message, status])
 
     useEffect(()=>{
-        if(user) navigate('/dashboard-home');
+        if(user) navigate('/v/dashboard-home');
     },[user])
 
     // const handleGoogleSignup = () => {

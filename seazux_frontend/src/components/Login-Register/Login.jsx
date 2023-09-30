@@ -40,7 +40,7 @@ const Login = () => {
     useEffect(()=>{
         console.log(user);
         if(user) {
-            navigate('/dashboard-home');
+            navigate('/v/dashboard-home');
         }
     },[user,message])
 
