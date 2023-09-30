@@ -1,11 +1,6 @@
-const mongoose = require('mongoose');
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
 const User = require('../models/User');
 const Url = require('../models/Url');
 const Analytics = require('../models/Analytics');
-const config = require("../config/config")
-require('dotenv').config();
 
 
 /////////////////////////////////////// USERS PROFILE ////////////////////////////////////////////////////////////////////////////////////

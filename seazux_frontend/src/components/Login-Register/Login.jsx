@@ -1,14 +1,10 @@
 import React,{useState, useEffect} from 'react';
-
+import './Login-Register.css';
+import { loginUserEmail, loadUser } from '../../Actions/User.actions';
 import { useDispatch, useSelector } from 'react-redux';
-
 import {useNavigate, Link} from 'react-router-dom';
-
 import Alert from '../Alert/Alert';
 import Loader from '../Loader/Loader';
-import { loginUserEmail, loadUser } from '../../Actions/User.actions';
-
-import './Login-Register.css';
 
 const Login = () => {
 
