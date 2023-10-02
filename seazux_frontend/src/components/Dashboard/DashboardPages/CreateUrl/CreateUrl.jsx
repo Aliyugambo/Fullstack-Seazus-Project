@@ -4,11 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createUrl } from '../../../../Actions/Url.actions';
 import './CreateUrl.css';
 import Alert from '../../../Alert/Alert'; 
-// import Loader from '../../../Loader/Loader';
+import Loader from '../../../Loader/Loader';
 const CreateURL = ()=>{
 
   const { message, error } = useSelector(state => state.createUrl);
+
+
   const [full, setFull] = useState('')
+  const [urlName, setUrlName] = useState('')
+ 
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,15 +29,19 @@ const CreateURL = ()=>{
         dispatch({ type: 'CLEAR_ERRORS' });
       }, 5000);
     }
-  }, [message, error])  // eslint-disable-line react-hooks/exhaustive-deps
+  }, [message, error])
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const urlData = {};
-    if (full) urlData.full = full;
-    
+    if (originalUrl) urlData.originalUrl = originalUrl;
+    if (urlName) urlData.urlName = urlName;
+
     dispatch(createUrl(urlData));
   }
+
 
     return <div className='createURL page-container'>
     <div className="heading">
