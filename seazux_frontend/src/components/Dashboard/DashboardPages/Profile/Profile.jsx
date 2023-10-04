@@ -1,15 +1,12 @@
-import React,{useState, useEffect} from 'react';
-
+import React,{useState, useEffect} from 'react'
+import './Profile.css'
 import dateFormat from "dateformat";
-
-import { useSelector, useDispatch } from 'react-redux';
-
+// import '../../../common.css'
+import deleteIcon from '../../../../images/delete.png'
+import edit from '../../../../images/edit.png'
+import { useSelector, useDispatch } from 'react-redux'
+import {deleteAccount} from '../../../../Actions/User.actions'
 import {useNavigate} from 'react-router-dom';
-
-import {deleteAccount} from '../../../../Actions/User.actions';
-import edit from '../../../../images/edit.png';
-
-import './Profile.css';
 
 const Profile = () => {
 
@@ -31,6 +28,7 @@ const Profile = () => {
       navigate('/v/login');
     }
   },[user])
+
   
   return (
     <div className='profile page-container'>
