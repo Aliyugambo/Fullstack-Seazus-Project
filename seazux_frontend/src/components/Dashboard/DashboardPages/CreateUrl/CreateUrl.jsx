@@ -36,7 +36,7 @@ const CreateURL = ()=>{
   const handleSubmit = (e) => {
     e.preventDefault()
     const urlData = {};
-    if (originalUrl) urlData.originalUrl = originalUrl;
+    if (full) urlData.full = full;
     if (urlName) urlData.urlName = urlName;
 
     dispatch(createUrl(urlData));
@@ -55,6 +55,12 @@ const CreateURL = ()=>{
         <div className="form-component">
           <input type="url" name="full"  value={full} onChange={(e) => setFull(e.target.value)} id="" placeholder='Enter Long URL' />
         </div>
+        <div className="form-component optional">
+            <h4>Optional</h4>
+          </div>
+          <div className="form-component">
+            <input type="text" name="urlName" value={urlName} onChange={(e) => setUrlName(e.target.value)} id="" placeholder='Enter Url Name (Optional)' />
+          </div>
         <button>Create</button>
       </form>
     </section>
