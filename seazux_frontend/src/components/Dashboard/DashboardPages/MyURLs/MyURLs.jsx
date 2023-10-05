@@ -31,7 +31,7 @@ const MyURLs = () => {
             temp.push(i);
         }
         setPages(temp);
-    }, [urls]) // eslint-disable-line react-hooks/exhaustive-deps
+    }, [urls])
 
     const handlePageChange = (page) => {
         if(page==='next' && currentPage<pages.length){

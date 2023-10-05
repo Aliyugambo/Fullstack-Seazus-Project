@@ -1,10 +1,9 @@
 import React,{useState, useEffect} from 'react'
 import './EditUrl.css'
 import {useSelector, useDispatch} from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom'
-import { viewUrl, editUrl } from '../../../../Actions/Url.actions'
-import Loader from '../../../Loader/Loader';
+
 import Alert from '../../../Alert/Alert';
+import Loader from '../../../Loader/Loader';
 // import SmallLoader from '../../../Loader/SmallLoader';
 
 const EditUrl = () => {
@@ -28,7 +27,7 @@ const EditUrl = () => {
         if(!url){
             dispatch(viewUrl(hash));
         }
-    }, [])// eslint-disable-line react-hooks/exhaustive-deps
+    }, [])
 
     useEffect(() => {
         if(url){
@@ -58,8 +57,7 @@ const EditUrl = () => {
                 dispatch({ type: 'CLEAR_MESSAGES' });
             }, 5000);
         }
-    }, [updatedUrlMessage, updatedUrlError, urlMessage, urlError]) // eslint-disable-line react-hooks/exhaustive-deps
-
+    }, [updatedUrlMessage, updatedUrlError, urlMessage, urlError]) 
     const handleSubmit = (e) => {
         e.preventDefault();
         const urlData = {};

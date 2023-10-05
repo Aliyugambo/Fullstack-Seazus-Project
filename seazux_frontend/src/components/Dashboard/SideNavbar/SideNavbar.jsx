@@ -17,8 +17,7 @@ const SideNavbar = () =>{
         if(!user){
            navigate('/v/login', {replace: true});
         }
-    }, [user])  // eslint-disable-line react-hooks/exhaustive-deps
-
+    }, [user]) 
     const handleLogout = () => {
         dispatch(loagout())
     }

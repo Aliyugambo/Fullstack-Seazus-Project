@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 // import csv from '../../../images/csv.png'
 import pdfIcon from '../../../images/pdfIcon.png'
-import { generateUrlReport } from '../../../Actions/Analytics.actions'
+// import { generateUrlReport } from '../../../Actions/Analytics.actions'
 import ContentLocked from '../DashboardPages/ContentLocked/ContentLocked';
 
 import ClickCards from './ClickCards/ClicksCards';
@@ -30,10 +30,10 @@ const Analytics = ({analytics, urlHash, groupId}) => {
     // };
   // },[reportUrl])
 
-  const handleGenrateReport = () => {
-    if(urlHash) dispatch(generateUrlReport(urlHash));
-    else return;
-  }
+  // const handleGenrateReport = () => {
+  //   if(urlHash) dispatch(generateUrlReport(urlHash));
+  //   else return;
+  // }
 
   return (
 
