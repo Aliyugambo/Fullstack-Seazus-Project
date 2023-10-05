@@ -56,9 +56,9 @@ app.use(limiter)
 app.use(helmet())
 
 // Routes
-// app.get('/home',(req, res) => {
-//     res.send("Wellcome Page");
-// });
+app.get('/api/test', (req,res)=>{
+  res.send("Health check, API is working !!");
+});
 app.use('/auth-email',userRoute);
 app.use('/api/v1/url',urlRouter);
 app.use(analyticRouter);
