@@ -1,6 +1,6 @@
 import React from 'react';
-// import { getAnalytics } from '../../../../Actions/Analytics.actions'
-// import {useSelector, useDispatch} from 'react-redux'
+import { getAnalytics } from '../../../../Actions/Analytics.actions'
+import {useSelector, useDispatch} from 'react-redux'
 
 
 const ClicksCards = ({analytics}) => {

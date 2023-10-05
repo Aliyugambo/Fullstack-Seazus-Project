@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import LineChart from './LineChart';
+import PieChart from './PieChart';
 
 const GraphSection = ({analytics, urlHash}) => {
 
@@ -26,6 +27,24 @@ const GraphSection = ({analytics, urlHash}) => {
               <LineChart urlHash={urlHash} duration={clicksDuration}/>
             </div>
             
+          </div>
+          <div className="analytic-card">
+            <div className="analytic-card-title">
+              <p>Browsers</p>
+              <select name="date" id="">
+                <option value="this-month">This Month</option>
+                <option value="this-year">This Year</option>
+                <option value="today">Today</option>
+                <option value="last-3-months">Last 3 Months</option>
+                <option value="last-6-months">Last 6 Months</option>
+                <option value="last-9-months">Last 9 Months</option>
+                <option value="custom">Custom</option>            {/* Pending */}         
+
+              </select>
+            </div>
+            <div className="analytic-card-content">
+              <PieChart analytics={analytics}/>
+            </div>
           </div>
         </div>
       </section>

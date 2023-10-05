@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './LineChart.css'
 import { Line } from 'react-chartjs-2';
+
 import { useSelector, useDispatch } from 'react-redux';
-import { getClicks } from '../../../../Actions/Analytics.actions'
 
 import {
   Chart as ChartJS,
@@ -79,7 +79,7 @@ const LineChart = ({ urlHash, duration }) => {
 
   useEffect(() => {
     dispatch(getClicks(urlHash, duration))
-  }, [duration]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [duration]);
 
   useEffect(() => {
     if (clicks) {
