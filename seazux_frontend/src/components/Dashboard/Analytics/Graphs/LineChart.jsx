@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import './LineChart.css'
+import React, { useEffect, useState } from 'react';
+
 import { Line } from 'react-chartjs-2';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -14,6 +14,10 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+
+import { getClicks } from '../../../../Actions/Analytics.actions';
+
+import './LineChart.css';
 
 
 

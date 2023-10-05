@@ -56,10 +56,10 @@ const Analytics = ({analytics, urlHash, groupId}) => {
           <p>Export CSV</p>
           <img src={csv} alt="" />
           </button> */}
-        <button onClick={handleGenrateReport}>
+        {/* <button onClick={handleGenrateReport}>
           Export PDF
           <img src={pdfIcon} alt="" />
-        </button>
+        </button> */}
       </section>
 
       {
