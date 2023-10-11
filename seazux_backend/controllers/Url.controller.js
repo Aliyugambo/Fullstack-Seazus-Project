@@ -198,8 +198,6 @@ async function getMyUrl(req, res){
 
     try {
         const user = req.user;
-
-        // console.log(user)
         let { page } = req.query;
         if(!page) page = 1;
 
