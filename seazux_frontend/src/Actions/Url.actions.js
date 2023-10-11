@@ -45,7 +45,7 @@ export const createUrl = (urlData)=> async(dispatch) => {
         })
 
         const {data} = await axios.post(`${backendUrl}/api/v1/url/login-short`,{
-            originalUrl: urlData.originalUrl,
+            full: urlData.full,
             urlName: urlData.urlName
         }, {
             withCredentials: true
