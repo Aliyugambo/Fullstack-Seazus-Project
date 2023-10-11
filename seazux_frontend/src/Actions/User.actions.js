@@ -99,7 +99,7 @@ export const loadUser = () => async (dispatch) => {
             type: 'LoadUserRequest'
         })
 
-        const { data } = await axios.get('https://seazux-backend.onrender.com/auth-email/user/profile',{
+        const { data } = await axios.get('https://seazux-backend.onrender.com/api/v1/user/profile',{
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -125,7 +125,7 @@ export const deleteAccount = () => async (dispatch) => {
             type: 'DeleteAccountRequest'
         })
 
-        const  { data } = await axios.delete('https://seazux-backend.onrender.com/auth-email/user/deleteAccount', {
+        const  { data } = await axios.delete('https://seazux-backend.onrender.com/api/v1/user/deleteAccount', {
             headers: {
                 'Content-Type': 'application/json'
             },
