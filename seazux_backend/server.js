@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const urlRouter = require('./routes/url.routes');
 const userRoute = require('./routes/user.routes');
+const emailAuthRouter = require('./controllers/Users.controllers');
 const analyticRouter = require('./routes/analytics.routes');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
@@ -59,7 +60,8 @@ app.use(helmet())
 app.get('/api/test', (req,res)=>{
   res.send("Health check, API is working !!");
 });
-app.use('/auth-email',userRoute);
+app.use('/auth-email',emailAuthRouter)
+app.use('/api/v1/user',userRoute);
 app.use('/api/v1/url',urlRouter);
 app.use(analyticRouter);
 
