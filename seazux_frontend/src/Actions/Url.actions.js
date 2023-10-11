@@ -1,11 +1,9 @@
 import axios from 'axios';
 
-// import { backendUrl } from '../utils/util';
-// const backendUrl = 'https://shy-teal-worm-coat.cyclic.cloud';
-// const backendUrl = '${backendUrl}';
+import { backendUrl } from '../utils/util';
 
 export const getMyUrls = (reqPage, reqSearch)=> async(dispatch) => {
-   
+
     try {
 
         let page = reqPage;
@@ -22,7 +20,7 @@ export const getMyUrls = (reqPage, reqSearch)=> async(dispatch) => {
             type: 'getMyUrlsRequest'
         })
 
-        const { data }  = await axios.get(`https://seazux-backend.onrender.com/api/v1/url/my-urls?page=${page}&search=${searchText}`,{
+        const {data}  = await axios.get(`${backendUrl}/api/v1/url/my-urls?page=${page}&search=${searchText}`,{
         // const {data}  = await axios.get(`${backendUrl}/api/v1/url/my-urls`,{
             withCredentials: true,
         });
@@ -40,15 +38,15 @@ export const getMyUrls = (reqPage, reqSearch)=> async(dispatch) => {
 }
 
 export const createUrl = (urlData)=> async(dispatch) => {
-
     try{
- 
+
         dispatch({
             type: 'createUrlRequest'
         })
 
-        const { data } = await axios.post(`https://seazux-backend.onrender.com/api/v1/url/login-short`,{
-            full: urlData.full
+        const {data} = await axios.post(`${backendUrl}/api/v1/url/login-short`,{
+            originalUrl: urlData.originalUrl,
+            urlName: urlData.urlName
         }, {
             withCredentials: true
         });
@@ -65,7 +63,6 @@ export const createUrl = (urlData)=> async(dispatch) => {
             payload: error.response.data.error
         })
     }
-   
 }
 
 export const viewUrl = (hash)=> async(dispatch) => {
@@ -75,7 +72,7 @@ export const viewUrl = (hash)=> async(dispatch) => {
             type: 'viewUrlRequest'
         })
 
-        const {data} = await axios.get(`https://seazux-backend.onrender.com/api/v1/url/view/${hash}`,{
+        const {data} = await axios.get(`${backendUrl}/api/v1/url/view/${hash}`,{
             withCredentials: true
         });
 
@@ -100,7 +97,7 @@ export const deleteUrlReq = (hash)=> async(dispatch) => {
             type: 'deleteUrlRequest'
         })
 
-        const {data} = await axios.delete(`https://seazux-backend.onrender.com/api/v1/url/delete/${hash}`,{
+        const {data} = await axios.delete(`${backendUrl}/api/v1/url/delete/${hash}`,{
             withCredentials: true
         });
 
@@ -117,7 +114,7 @@ export const deleteUrlReq = (hash)=> async(dispatch) => {
             type:'deleteUrlFailure',
             payload: error.response.data.error
         })
-    }
+    } 
 }
 
 export const editUrl = (hash, urlData) => async(dispatch)=>{
@@ -129,7 +126,7 @@ export const editUrl = (hash, urlData) => async(dispatch)=>{
         console.log(urlData)
         console.log(hash)
 
-        const {data} = await axios.put(`https://seazux-backend.onrender.com/api/v1/url/edit/${hash}`,{
+        const {data} = await axios.put(`${backendUrl}/api/v1/url/edit/${hash}`,{
             urlData
         },{
             withCredentials: true
@@ -148,7 +145,104 @@ export const editUrl = (hash, urlData) => async(dispatch)=>{
     }
 }
 
+// export const createGroup = (groupName, urls) => async(dispatch)=>{
+//     try{
+//         dispatch({
+//             type: 'createGroupRequest'
+//         })
+    
+//         let urlsList = [];
+//         urls.forEach(url => {
+//             urlsList.push(url.hash);
+//         })
+    
+//         const {data} = await axios.post(`${backendUrl}/api/v1/url/group`, {
+//             groupName,
+//             urls:urlsList
+//         },{
+//             withCredentials: true
+//         })
+    
+//         dispatch({
+//             type: 'createGroupSuccess',
+//             payload: data
+//         })
+//     }
+//     catch(error){
+//         dispatch({
+//             type: 'createGroupFailure',
+//             payload: error.response.data.error
+//         })
+//     }
+// }
 
+// export const getGroups = () => async(dispatch)=>{
+//     try{
+//         dispatch({
+//             type: 'getAllGroupsRequest'
+//         })
+    
+//         const {data} = await axios.get(`${backendUrl}/api/v1/url/group/all`,{
+//             withCredentials: true
+//         })
 
+//         console.log(data);
+    
+//         dispatch({
+//             type: 'getAllGroupsSuccess',
+//             payload: data
+//         })
+//     }
+//     catch(error){
+//         dispatch({
+//             type: 'getAllGroupsFailure',
+//             payload: error.response.data.error
+//         })
+//     }
+// }
 
+// export const getGroupById = (groupId) => async(dispatch)=>{
+//     try{
+//         dispatch({
+//             type: 'getGroupByIdRequest'
+//         })
+    
+//         const {data} = await axios.get(`${backendUrl}/api/v1/url/group/${groupId}`,{
+//             withCredentials: true
+//         })
+    
+//         dispatch({
+//             type: 'getGroupByIdSuccess',
+//             payload: data
+//         })
+//     }
+//     catch(error){
+//         dispatch({
+//             type: 'getGroupByIdFailure',
+//             payload: error.response.data.error
+//         })
+//     }
+// }
 
+// export const deleteGroupReq = (groupId) => async(dispatch)=>{
+//     try{
+//         dispatch({
+//             type: 'deleteGroupRequest'
+//         })
+    
+//         const {data} = await axios.delete(`${backendUrl}/api/v1/url/group/delete/${groupId}`,{
+//             withCredentials: true
+//         })
+    
+//         dispatch({
+//             type: 'deleteGroupSuccess',
+//             payload: data
+//         })
+//     }
+//     catch(error){
+//         dispatch({
+//             type: 'deleteGroupFailure',
+//             payload: error.response.data.error
+//         })
+//     }
+// }
