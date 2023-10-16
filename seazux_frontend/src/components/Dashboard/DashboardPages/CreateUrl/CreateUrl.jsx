@@ -30,7 +30,7 @@ const CreateURL = () => {
       setTimeout(() => {
         dispatch({ type: 'CLEAR_MESSAGES' });
       }, 0);
-      navigate('/myUrls');
+      navigate('/v/myUrls');
     }
     if (error) {
       setTimeout(() => {
