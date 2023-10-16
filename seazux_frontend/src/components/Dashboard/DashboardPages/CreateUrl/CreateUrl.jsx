@@ -9,7 +9,7 @@ import Loader from '../../../Loader/Loader';
 import { createUrl } from '../../../../Actions/Url.actions';
 import {urlsLimit} from '../../../../Actions/User.actions';
 
-import './CreateURL.css';
+import './CreateUrl.css';
 
 const CreateURL = () => {
 
