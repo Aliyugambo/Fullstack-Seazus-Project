@@ -1,28 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import { useDispatch, useSelector } from 'react-redux';
-import { createUrl } from '../../../../Actions/Url.actions';
-import './CreateUrl.css';
-import Alert from '../../../Alert/Alert'; 
+
+import { useNavigate } from 'react-router-dom';
+
+import Alert from '../../../Alert/Alert';
 import Loader from '../../../Loader/Loader';
-const CreateURL = ()=>{
+import { createUrl } from '../../../../Actions/Url.actions';
+import {urlsLimit} from '../../../../Actions/User.actions';
+
+import './CreateURL.css';
+
+const CreateURL = () => {
 
   const { message, error } = useSelector(state => state.createUrl);
-
+  const {user} = useSelector(state => state.user);
+  const {overLimit, loading} = useSelector(state => state.urlsLimit);
 
   const [full, setFull] = useState('')
   const [urlName, setUrlName] = useState('')
- 
+  const [disableContent, setDisableContent] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(urlsLimit());
+  },[])
 
   useEffect(() => {
     if (message) {
       setTimeout(() => {
         dispatch({ type: 'CLEAR_MESSAGES' });
       }, 0);
-      navigate('/v/myUrls');
+      navigate('/myUrls');
     }
     if (error) {
       setTimeout(() => {
@@ -31,17 +42,24 @@ const CreateURL = ()=>{
     }
   }, [message, error])
 
-
+  useEffect(() => {
+    if(overLimit===true){
+      setDisableContent(true);
+    }
+    
+    return () => {
+      setDisableContent(false);
+    }
+  },[overLimit])
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const urlData = {};
-    if (full) urlData.full = full;
+    if (originalUrl) urlData.originalUrl = originalUrl;
     if (urlName) urlData.urlName = urlName;
 
     dispatch(createUrl(urlData));
   }
-
 
     return <div className='createURL page-container'>
     <div className="heading">
