@@ -194,8 +194,7 @@ async function handleRedirect(req, res){
 } 
 
 const pageLimit = 6;
-async function getMyUrl(req, res){
-
+exports.getMyUrls = async (req, res) => {
     try {
         const user = req.user;
         let { page } = req.query;
@@ -245,6 +244,7 @@ async function getMyUrl(req, res){
         })
     }
 }
+
 
 
 // ViewMy Urls
@@ -387,7 +387,6 @@ async function deleteUrl(req, res){
   module.exports = {
     login_short,
     handleRedirect,
-    getMyUrl,
     anony_short,
     viewUrl,
     editUrl,
