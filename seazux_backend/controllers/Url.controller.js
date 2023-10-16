@@ -42,7 +42,7 @@ async function genrateUrlCode() {
 }
 
 // SHORT URL FOR UNAUTORIZED USERS
-async function anony_short(req, res){
+exports.anony_short = async (req, res)=> {
   const full = req.body.full;
 
   const urlId = await genrateUrlCode();
@@ -69,7 +69,7 @@ async function anony_short(req, res){
 
 
 // GREATE SHORT URLS
-async function login_short(req, res){
+exports.login_short = async (req, res) =>{
     try {
 
         const full = req.body.full;
@@ -124,7 +124,7 @@ async function login_short(req, res){
 
   
 // HANDLE URL REDIRECTIONS
-async function handleRedirect(req, res){
+exports.handleRedirect = async (req, res) =>{
     try {
         const hash = req.params.hash;
 
@@ -248,7 +248,7 @@ exports.getMyUrls = async (req, res) => {
 
 
 // ViewMy Urls
-async function viewUrl(req, res){
+exports.viewUrl = async (req, res) =>{
     try{
 
         const { hash } = req.params;
@@ -279,7 +279,7 @@ async function viewUrl(req, res){
 
 
 // EditUrl
-async function editUrl(req,res){
+exports.editUrl = async (req,res) =>{
         try{
 
             const url = await Url.findOne({hash:req.params.hash});
@@ -340,7 +340,7 @@ async function editUrl(req,res){
 }
 
 // DeleteUrl
-async function deleteUrl(req, res){
+exports.deleteUrl = async (req, res) =>{
     try{
 
         const { hash } = req.params;
@@ -384,11 +384,11 @@ async function deleteUrl(req, res){
 //   const UrlFunc = {login_short,handleRedirect,getMyUrl,anony_short,viewUrl,editUrl,deleteUrl}
 
 
-  module.exports = {
-    login_short,
-    handleRedirect,
-    anony_short,
-    viewUrl,
-    editUrl,
-    deleteUrl
-  }
+//   module.exports = {
+//     login_short,
+//     handleRedirect,
+//     anony_short,
+//     viewUrl,
+//     editUrl,
+//     deleteUrl
+//   }
