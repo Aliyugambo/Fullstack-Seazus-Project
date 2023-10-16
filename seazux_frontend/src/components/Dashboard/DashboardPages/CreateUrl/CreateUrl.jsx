@@ -23,9 +23,7 @@ const CreateURL = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    dispatch(urlsLimit());
-  },[])
+ 
 
   useEffect(() => {
     if (message) {
@@ -54,7 +52,7 @@ const CreateURL = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const urlData = {};
-    if (originalUrl) urlData.originalUrl = originalUrl;
+    if (full) urlData.full = full;
     if (urlName) urlData.urlName = urlName;
 
     dispatch(createUrl(urlData));
