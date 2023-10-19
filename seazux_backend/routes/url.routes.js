@@ -17,6 +17,7 @@ const {isAuthenticated} = require("../authentication/auth");
 
 urlRouter.route('/anony-short').post(anony_short);
 urlRouter.route('/login-short').post(isAuthenticated, login_short);
+urlRouter.route('/:hash', isAuthenticated, handleRedirect);
 urlRouter.route('/my-urls').get(isAuthenticated, getMyUrls);
 urlRouter.route('/view/:hash').get(isAuthenticated, viewUrl);
 urlRouter.route('/delete/:hash').delete(isAuthenticated, deleteUrl);
