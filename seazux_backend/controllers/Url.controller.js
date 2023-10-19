@@ -246,7 +246,6 @@ exports.getMyUrls = async (req, res) => {
 }
 
 
-
 // ViewMy Urls
 exports.viewUrl = async (req, res) =>{
     try{
