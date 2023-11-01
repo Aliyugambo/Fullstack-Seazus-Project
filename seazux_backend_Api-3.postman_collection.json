@@ -1,0 +1,575 @@
+{
+	"info": {
+		"_postman_id": "69df0d51-e162-4c29-8ab5-daeb74e45d3a",
+		"name": "seazux_backend_Api",
+		"description": "**This is an URL shortened API service like bit.ly or cutt.ly. The API service can take a long URL and convert it to a shorter URL. MongoDB is used as the database. The long URL, short URL, and other details are stored in the database**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24686682",
+		"_collection_link": "https://www.postman.com/lunar-spaceship-706468/workspace/url-shortening/collection/24686682-69df0d51-e162-4c29-8ab5-daeb74e45d3a?action=share&source=collection_link&creator=24686682"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Abu\",\r\n    \"email\":\"um3@yup.com\",\r\n    \"password\":\"pass12345678901\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/auth-email/register",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"auth-email",
+								"register"
+							]
+						},
+						"description": "At this Point in time Users get to register by providing their Username, Email-Addresses and also Password. By making a `{POST}` request."
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"um36@yup.com\",\r\n    \"password\":\"pass12345678901\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/auth-email/login",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"auth-email",
+								"login"
+							]
+						},
+						"description": "At this Point in time Users get to Login With their credentials which are the Email and Passwords they Register. After a user login an authorization token called the Bearer Token will be Created For that User. By making also a `{POST}` request."
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/auth-email/logout",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"auth-email",
+								"logout"
+							]
+						},
+						"description": "At this Point in time Users get to Logout of their accounts by accessing the logout Endpoint that is making the cookies expire. By making a `{GET}` request"
+					},
+					"response": []
+				},
+				{
+					"name": "UserProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGQ2NjIxMjJkZDcyMDJiNmM4ZWNmMmYiLCJpYXQiOjE2OTIxODUwODV9.E6igSAQ05jAAV74pnvy24MkltuT0i2VzeX0jQgJ9wno",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/api/v1/user/profile",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"profile"
+							]
+						},
+						"description": "At this Point in time Users that have registered and also Login will be able to access this Endpoint which accesing their account profile and also their account dashboard. By making a `{GET}` request"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProfile",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\":\"Aliyu\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/api/v1/user/deleteAccount",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"deleteAccount"
+							]
+						},
+						"description": "At this Point in time Login Users can access this endpiont in other to Delete the Profile. By making a `{GET}` request."
+					},
+					"response": []
+				}
+			],
+			"description": "Users/Client Endpoints were all users or client are able to interact with our Api"
+		},
+		{
+			"name": "Seazux_UrlRequest",
+			"item": [
+				{
+					"name": "Short Url",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full\": \"https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/api/v1/url/login-short",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"url",
+								"login-short"
+							]
+						},
+						"description": "At this Point in time Login Users have access to make a long url to a short url my making a `{POST}` request to the Api by Providing Body raw JSON file with a variable name call `{FULL}`"
+					},
+					"response": []
+				},
+				{
+					"name": "GetShortUrlRedirection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGRjYjNhYTQzYjk2YjI1MTAyN2U0ZGIiLCJpYXQiOjE2OTIxODU1MzJ9._exUidBgu8aQ2ok4oKTnikxAI3IV0trmq70tvuGGqjo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/uuCFEqC",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"uuCFEqC"
+							],
+							"query": [
+								{
+									"key": "short",
+									"value": "kgsfbkngbdvk",
+									"disabled": true
+								}
+							]
+						},
+						"description": "At this Point in time Login Users have access to redirect the short url generated to get the accual result of the long url provided by making a `{GET}` request to the Api by passing out the generated short url to the endpoint as a `{PARAMS}.`"
+					},
+					"response": []
+				},
+				{
+					"name": "GetUrls",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGRjYjNhYTQzYjk2YjI1MTAyN2U0ZGIiLCJpYXQiOjE2OTIxODU1MzJ9._exUidBgu8aQ2ok4oKTnikxAI3IV0trmq70tvuGGqjo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/api/v1/url/my-urls?user=Abu1",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"url",
+								"my-urls"
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": "Abu1"
+								}
+							]
+						},
+						"description": "At this Point in time Login Users have access to the record of all their generated short urls at the endpiont were they get to all that they have generated. By making a `{GET}` request"
+					},
+					"response": []
+				},
+				{
+					"name": "Anonymos_Url",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full\": \"https://yeun.github.io/open-color/\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/api/v1/url/anony-short",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"url",
+								"anony-short"
+							]
+						},
+						"description": "This is a public Endpiont that is all Users Authorides and unautorised can access it at the endpoint u get to generate ur short url token without creating an account to our system. By making a `{POST}` request."
+					},
+					"response": []
+				},
+				{
+					"name": "viewUrl",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/api/v1/url/view/uQNmErJ",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"url",
+								"view",
+								"uQNmErJ"
+							]
+						},
+						"description": "At this Point in time Login Users Can view their generated short url also at the same time get a QR-code for the short url. By making a `{GET}` request."
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUrl",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/delete/MbrzqaP",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"delete",
+								"MbrzqaP"
+							]
+						},
+						"description": "At this Point in time Login Users get to Deleted their generated short url. by making a `{DELETE}` request."
+					},
+					"response": []
+				},
+				{
+					"name": "EditUrl",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\"urlData\":{\r\n    \"urlName\":\"First\",\r\n    \"captcha\":\"true\",\r\n    \"customUrl\":\"true\"\r\n\r\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/edit/MbrzqaP?hash=8gk2BwZ",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"edit",
+								"MbrzqaP"
+							],
+							"query": [
+								{
+									"key": "hash",
+									"value": "8gk2BwZ"
+								}
+							]
+						},
+						"description": "At this Point in time Login Users get to make Changes to thier generated short url by making a `{PUT}` request."
+					},
+					"response": []
+				}
+			],
+			"description": "All UrlRequest Endpoints were all users or client are able to interact with the Url endpiont making and recieving request and responseses."
+		},
+		{
+			"name": "Seazux_Analytics",
+			"item": [
+				{
+					"name": "GetUrlAnalytics",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGRjYjNhYTQzYjk2YjI1MTAyN2U0ZGIiLCJpYXQiOjE2OTIxODU1MzJ9._exUidBgu8aQ2ok4oKTnikxAI3IV0trmq70tvuGGqjo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/api/analytics/url/uQNmErJ",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"analytics",
+								"url",
+								"uQNmErJ"
+							]
+						},
+						"description": "The Get URL Analytics Data API `{GET}` request enables you to get analytics data of a specific (IP, Browser, Browser Version, and many more) for a shortened URL."
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllAnalytics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/api/analytics/getAll",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"analytics",
+								"getAll"
+							]
+						},
+						"description": "The Get URL Analytics Data API `{GET}` request enables you to get analytics data (IP, Browser, Browser Version, and many more) for a shortened URL."
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllClicks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/api/analytics/clicks?hash=tZf1rOL&duration=today",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"analytics",
+								"clicks"
+							],
+							"query": [
+								{
+									"key": "hash",
+									"value": "tZf1rOL"
+								},
+								{
+									"key": "duration",
+									"value": "today"
+								}
+							]
+						},
+						"description": "The Get URL Clicks s Data API `{GET}` request enables you to get all clicks for a shortened URL."
+					},
+					"response": []
+				},
+				{
+					"name": "genrateUrlReport",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://seazux-backend.onrender.com/report/8gk2BwZ",
+							"protocol": "https",
+							"host": [
+								"seazux-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"report",
+								"8gk2BwZ"
+							]
+						},
+						"description": "The Get Generate Url-Report Data API `{GET}` request create beautiful and engaging custom _reports_ for our Url. which is a feature coming soon."
+					},
+					"response": []
+				}
+			],
+			"description": "All AnalyticsRequest Endpoints were all users or client are able to interact with the Analytics endpiont making and recieving request and responseses."
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://worried-dungarees-hare.cyclic.app/home",
+					"protocol": "https",
+					"host": [
+						"worried-dungarees-hare",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"home"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
