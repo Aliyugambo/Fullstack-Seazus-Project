@@ -1,0 +1,340 @@
+openapi: 3.0.0
+info:
+  title: seazux_backend_Api
+  description: >-
+    **This is an URL shortened API service like bit.ly or cutt.ly. The API
+    service can take a long URL and convert it to a shorter URL. MongoDB is used
+    as the database. The long URL, short URL, and other details are stored in
+    the database**
+  version: 1.0.0
+servers:
+  - url: https://seazux-backend.onrender.com
+  - url: https://worried-dungarees-hare.cyclic.app
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+tags:
+  - name: Users
+    description: >-
+      Users/Client Endpoints were all users or client are able to interact with
+      our Api
+  - name: Seazux_UrlRequest
+    description: >-
+      All UrlRequest Endpoints were all users or client are able to interact
+      with the Url endpiont making and recieving request and responseses.
+  - name: Seazux_Analytics
+    description: >-
+      All AnalyticsRequest Endpoints were all users or client are able to
+      interact with the Analytics endpiont making and recieving request and
+      responseses.
+paths:
+  /auth-email/register:
+    post:
+      tags:
+        - Users
+      summary: SignUp
+      description: >-
+        At this Point in time Users get to register by providing their Username,
+        Email-Addresses and also Password. By making a `{POST}` request.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: Abu
+                email: um3@yup.com
+                password: pass12345678901
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /auth-email/login:
+    post:
+      tags:
+        - Users
+      summary: Login
+      description: >-
+        At this Point in time Users get to Login With their credentials which
+        are the Email and Passwords they Register. After a user login an
+        authorization token called the Bearer Token will be Created For that
+        User. By making also a `{POST}` request.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: um36@yup.com
+                password: pass12345678901
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /auth-email/logout:
+    get:
+      tags:
+        - Users
+      summary: Logout
+      description: >-
+        At this Point in time Users get to Logout of their accounts by accessing
+        the logout Endpoint that is making the cookies expire. By making a
+        `{GET}` request
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/user/profile:
+    get:
+      tags:
+        - Users
+      summary: UserProfile
+      description: >-
+        At this Point in time Users that have registered and also Login will be
+        able to access this Endpoint which accesing their account profile and
+        also their account dashboard. By making a `{GET}` request
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/user/deleteAccount:
+    delete:
+      tags:
+        - Users
+      summary: DeleteProfile
+      description: >-
+        At this Point in time Login Users can access this endpiont in other to
+        Delete the Profile. By making a `{GET}` request.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/url/login-short:
+    post:
+      tags:
+        - Seazux_UrlRequest
+      summary: Short Url
+      description: >-
+        At this Point in time Login Users have access to make a long url to a
+        short url my making a `{POST}` request to the Api by Providing Body raw
+        JSON file with a variable name call `{FULL}`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                full: >-
+                  https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /uuCFEqC:
+    get:
+      tags:
+        - Seazux_UrlRequest
+      summary: GetShortUrlRedirection
+      description: >-
+        At this Point in time Login Users have access to redirect the short url
+        generated to get the accual result of the long url provided by making a
+        `{GET}` request to the Api by passing out the generated short url to the
+        endpoint as a `{PARAMS}.`
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/url/my-urls:
+    get:
+      tags:
+        - Seazux_UrlRequest
+      summary: GetUrls
+      description: >-
+        At this Point in time Login Users have access to the record of all their
+        generated short urls at the endpiont were they get to all that they have
+        generated. By making a `{GET}` request
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: user
+          in: query
+          schema:
+            type: string
+          example: Abu1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/url/anony-short:
+    post:
+      tags:
+        - Seazux_UrlRequest
+      summary: Anonymos_Url
+      description: >-
+        This is a public Endpiont that is all Users Authorides and unautorised
+        can access it at the endpoint u get to generate ur short url token
+        without creating an account to our system. By making a `{POST}` request.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                full: https://yeun.github.io/open-color/
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/url/view/uQNmErJ:
+    get:
+      tags:
+        - Seazux_UrlRequest
+      summary: viewUrl
+      description: >-
+        At this Point in time Login Users Can view their generated short url
+        also at the same time get a QR-code for the short url. By making a
+        `{GET}` request.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /delete/MbrzqaP:
+    delete:
+      tags:
+        - Seazux_UrlRequest
+      summary: DeleteUrl
+      description: >-
+        At this Point in time Login Users get to Deleted their generated short
+        url. by making a `{DELETE}` request.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /edit/MbrzqaP:
+    put:
+      tags:
+        - Seazux_UrlRequest
+      summary: EditUrl
+      description: >-
+        At this Point in time Login Users get to make Changes to thier generated
+        short url by making a `{PUT}` request.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                urlData:
+                  urlName: First
+                  captcha: 'true'
+                  customUrl: 'true'
+      parameters:
+        - name: hash
+          in: query
+          schema:
+            type: string
+          example: 8gk2BwZ
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/analytics/url/uQNmErJ:
+    get:
+      tags:
+        - Seazux_Analytics
+      summary: GetUrlAnalytics
+      description: >-
+        The Get URL Analytics Data API `{GET}` request enables you to get
+        analytics data of a specific (IP, Browser, Browser Version, and many
+        more) for a shortened URL.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/analytics/getAll:
+    get:
+      tags:
+        - Seazux_Analytics
+      summary: GetAllAnalytics
+      description: >-
+        The Get URL Analytics Data API `{GET}` request enables you to get
+        analytics data (IP, Browser, Browser Version, and many more) for a
+        shortened URL.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/analytics/clicks:
+    get:
+      tags:
+        - Seazux_Analytics
+      summary: GetAllClicks
+      description: >-
+        The Get URL Clicks s Data API `{GET}` request enables you to get all
+        clicks for a shortened URL.
+      parameters:
+        - name: hash
+          in: query
+          schema:
+            type: string
+          example: tZf1rOL
+        - name: duration
+          in: query
+          schema:
+            type: string
+          example: today
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /report/8gk2BwZ:
+    get:
+      tags:
+        - Seazux_Analytics
+      summary: genrateUrlReport
+      description: >-
+        The Get Generate Url-Report Data API `{GET}` request create beautiful
+        and engaging custom _reports_ for our Url. which is a feature coming
+        soon.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /home:
+    get:
+      tags:
+        - default
+      summary: New Request
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
