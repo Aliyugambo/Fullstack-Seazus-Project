@@ -124,7 +124,7 @@ router.route('/login').post(
             })
         }
     }
-)
+);
 
 router.route('/logout').get(
     async(req,res)=>{
@@ -140,7 +140,6 @@ router.route('/logout').get(
             })
         }
     }
-)
-
+);
 
 module.exports = router;

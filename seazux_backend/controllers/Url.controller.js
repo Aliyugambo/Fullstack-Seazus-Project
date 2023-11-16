@@ -39,7 +39,7 @@ async function genrateUrlCode() {
       console.log(error);
       return false;
   }
-}
+};
 
 // SHORT URL FOR UNAUTORIZED USERS
 exports.anony_short = async (req, res)=> {
@@ -65,7 +65,7 @@ exports.anony_short = async (req, res)=> {
   res.status(200).json({
     urlId
   })
-} 
+};
 
 
 // GREATE SHORT URLS
@@ -120,7 +120,7 @@ exports.login_short = async (req, res) =>{
             error: error.message
         })
     }
-}
+};
 
   
 // HANDLE URL REDIRECTIONS
@@ -139,8 +139,6 @@ exports.handleRedirect = async (req, res) =>{
             if(!url.owner){
                 return res.redirect(url.longUrl);
             }
-
-
             const analytic = await Analytics.findById(url.analytics);
             analytic.clicks.push(Date.now());
 
@@ -191,7 +189,7 @@ exports.handleRedirect = async (req, res) =>{
             message: error.message
         })
     }
-} 
+};
 
 const pageLimit = 6;
 exports.getMyUrls = async (req, res) => {
@@ -243,7 +241,7 @@ exports.getMyUrls = async (req, res) => {
             error: error.message
         })
     }
-}
+};
 
 
 // ViewMy Urls
@@ -274,7 +272,7 @@ exports.viewUrl = async (req, res) =>{
             error: error.message
         })
     }
-}
+};
 
 
 // EditUrl
@@ -336,7 +334,7 @@ exports.editUrl = async (req,res) =>{
                 error: error.message
             })
         }
-}
+};
 
 // DeleteUrl
 exports.deleteUrl = async (req, res) =>{
@@ -378,16 +376,4 @@ exports.deleteUrl = async (req, res) =>{
             error: error.message
         })
     }
-}
-
-//   const UrlFunc = {login_short,handleRedirect,getMyUrl,anony_short,viewUrl,editUrl,deleteUrl}
-
-
-//   module.exports = {
-//     login_short,
-//     handleRedirect,
-//     anony_short,
-//     viewUrl,
-//     editUrl,
-//     deleteUrl
-//   }
+};

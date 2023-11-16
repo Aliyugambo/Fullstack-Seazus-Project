@@ -17,7 +17,7 @@ const InvitePeople = ()=>{
         </div>
         <div className="invite-people-social">
                 <h4>Share on social</h4>
-                <a href={`https://web.whatsapp.com/send?text=${user.username} has invited you to join Seazux.%0A%0ASeazux is a platform where you can short long and ugly urls.%0A%0AHere is the link to join Seazux: https://urily.com/register?utm=${user?.utmCode}`} data-action="share/whatsapp/share"><img src={whatsapp} alt="" /></a>
+                <a href={`https://web.whatsapp.com/send?text=${user.username} has invited you to join Seazux.%0A%0ASeazux is a platform where you can short long and ugly urls.%0A%0AHere is the link to join Seazux: https://seazux-frontend.onrender.com/register?utm=${user?.utmCode}`} data-action="share/whatsapp/share"><img src={whatsapp} alt="" /></a>
 
 
             </div>
