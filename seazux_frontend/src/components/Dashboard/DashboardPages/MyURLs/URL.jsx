@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {Link} from 'react-router-dom'
 import './URL.css'
 import copy from '../../../../images/copy.png'
@@ -42,7 +42,6 @@ const URL = ({url,sr}) => {
         </div>
     </div>
   )
-  
 }
 
 export default URL
