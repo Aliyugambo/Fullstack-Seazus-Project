@@ -8,7 +8,6 @@ import MyURLs from './DashboardPages/MyURLs/MyURLs';
 import Profile from './DashboardPages/Profile/Profile';
 import CreateURL from './DashboardPages/CreateUrl/CreateUrl'
 import InvitePeople from './DashboardPages/InvitePeople/InvitePeople'
-// import ContentLocked from './DashboardPages/ContentLocked/ContentLocked'
 import ViewURL from './DashboardPages/ViewURL/ViewURL'
 import EditUrl from './DashboardPages/EditUrl/EditUrl'
 const Dashboard = ({page})=>{
@@ -28,7 +27,6 @@ const Dashboard = ({page})=>{
                  page==='createUrl' ? <CreateURL /> :
                  page==='viewUrl' ? <ViewURL /> :
                  page==='editUrl' ? <EditUrl /> :
-                //  page==='content-locked' ? <ContentLocked/> :
                  <h1>404</h1>
                }
       </section>

@@ -12,8 +12,8 @@ const Navbar = () => {
         <div className='navbar__links'>
             <ul>
                 <li><a href="#features">Features</a></li>
-                <li><a href="/v/login">Login</a></li>
-                <li><a href="/v/signup">Signup</a></li>
+                {/* <li><a href="/v/login">Login</a></li>
+                <li><a href="/v/signup">Signup</a></li> */}
                 <li><a href="#Fqr">FAQ</a></li>
             </ul>
         </div>

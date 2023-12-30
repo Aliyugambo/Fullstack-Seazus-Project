@@ -24,19 +24,14 @@ const URL = ({url,sr}) => {
             <p id='shortUrl'>{url.shortUrl}<span><img src={copy} alt="" /></span></p> 
             <p id='longUrl'>{ url.longUrl.slice(0, 50)+". . ." }</p>
         </div>
-
-        <div className="url-component expiry">
-            <p>Never</p>
-        </div>
-
         <div className="url-component analytics">
-            <Link to={`/url/${url.hash}`}>
+            <Link to={`/v/url/${url.hash}`}>
                 <img src={view} alt="" />
             </Link>
         </div>
 
         <div className="url-component edit">
-            <Link to={`/editUrl/${url.hash}`}>
+            <Link to={`/v/editUrl/${url.hash}`}>
                 <img src={edit} alt="" />
             </Link>
         </div>

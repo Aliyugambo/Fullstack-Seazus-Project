@@ -64,9 +64,7 @@ const EditUrl = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const urlData = {};
-        // console.log(expiryDate);
         if (urlName) urlData.urlName = urlName;
-        // if (expiryDate) urlData.expiryDate = expiryDate;
         if (captcha) urlData.captcha = captcha;
         if (customUrl) urlData.customUrl = customUrl;
 
@@ -112,8 +110,6 @@ const EditUrl = () => {
                                         customUrlCheckbox || url?.captcha ?
                                         <div className="check-available">
                                             <input onChange={(e)=>setCustomUrl(e.target.value)} value={customUrl} minLength={7} maxLength={12} type="text" name="" id="" placeholder='Ex: abcd'/>
-                                            {/* <button onClick={(e)=>{}} >Check</button>
-                                            <SmallLoader/> */}
                                         </div>:null
                                     }
                                 </div>

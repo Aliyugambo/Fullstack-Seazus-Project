@@ -1,23 +1,19 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect, useState } from 'react'
 import dateFormat from "dateformat";
-
-import { useParams, useNavigate } from 'react-router-dom';
-
-import { useDispatch, useSelector } from 'react-redux';
-
-import '../../../common.css';
-import Analytics from '../../Analytics/Analytics';
-import Alert from '../../../Alert/Alert';
+import { useParams, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { viewUrl, deleteUrlReq } from '../../../../Actions/Url.actions'
+import { getUrlAnalytics, getClicks } from '../../../../Actions/Analytics.actions'
+import Analytics from '../../Analytics/Analytics'
 import GenrateQR from '../../../GenrateQR/GenrateQR';
-import Loader from '../../../Loader/Loader';
-import { getUrlAnalytics, getClicks } from '../../../../Actions/Analytics.actions';
-import { viewUrl, deleteUrlReq } from '../../../../Actions/Url.actions';
-import deleteIcon from '../../../../images/delete.png';
-import edit from '../../../../images/edit.png';
-import qrcode from '../../../../images/qr-code.png';
-
-import './ViewURL.css';
+import './ViewURL.css'
+import '../../../common.css'
+import Loader from '../../../Loader/Loader'
+import deleteIcon from '../../../../images/delete.png'
+import edit from '../../../../images/edit.png'
+import qrcode from '../../../../images/qr-code.png'
+import Footer from '../../../Footer/Footer'
+import Alert from '../../../Alert/Alert'
 
 const copy = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z" /></svg>
 
@@ -109,6 +105,7 @@ const ViewURL = () => {
     const handleStatusChange = () => {
         setStatus(!status);
     }
+
     return (
         <div className='viewUrl page-container'>
             {
@@ -139,12 +136,6 @@ const ViewURL = () => {
                                 <div className="status-toggle">
                                     <div className="label">
                                         <p>{url?.status==='active'?"Deactivate":"Activate"}</p>
-                                        {/* <div className="info-tooltip">
-                                            <div className="info-tooltip-i">i</div>
-                                            <div className="info-tooltip-p">
-                                                <p>Active - URL is active and can be used.</p>
-                                            </div>
-                                        </div> */}
                                     </div>
                                     <label className="switch">
                                         <input type="checkbox" onChange={handleStatusChange} checked={status}/>
@@ -210,7 +201,7 @@ const ViewURL = () => {
                         : null
                 }
             </section>
-            {/* <Footer /> */}
+            <Footer />
         </div>
     )
 }

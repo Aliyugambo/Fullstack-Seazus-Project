@@ -49,9 +49,6 @@ const Signup = () => {
         if(user) navigate('/v/dashboard-home');
     },[user])
 
-    // const handleGoogleSignup = () => {
-    //     window.location.href = 'https://urily.onrender.com/auth/google';
-    // }
 
     return (
         <div className='login-register'>
@@ -74,7 +71,7 @@ const Signup = () => {
                         <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" name="password" id="password" placeholder="Password" />
                     </div>
                     <button type="submit">Register</button>
-                    <p>Already have an account? <span><Link to="/login">Login</Link></span></p>
+                    <p>Already have an account? <span><Link to="/v/login">Login</Link></span></p>
                 </form>
             </div>
             {/* <p id='or'>or</p>

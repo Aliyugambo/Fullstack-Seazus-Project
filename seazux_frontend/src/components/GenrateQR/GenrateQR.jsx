@@ -1,26 +1,8 @@
-import React from 'react';
-
+import React, { useState } from 'react'
 import QRCode from "react-qr-code";
 
-// import { Canvg } from 'canvg';
 
-// import downloadIcon from '../../images/download.png';
-
-import './GenrateQR.css';
 const GenrateQR = ({ value, handleCloseGenrateQr }) => {
-
-    // const handleQrDownload = () => {
-
-    //     const canvas = document.getElementById('qr-code');
-    //     console.log(canvas);
-    //     const pngUrl = canvas.toDataURL('image/png').replace("image/png", "image/octet-stream");
-    //     let downloadLink = document.createElement("a");
-    //     downloadLink.href = pngUrl;
-    //     downloadLink.download = "qr-code.png";
-    //     document.body.appendChild(downloadLink);
-    //     downloadLink.click();
-    //     document.body.removeChild(downloadLink);
-    // }
 
 
     return (
@@ -38,13 +20,6 @@ const GenrateQR = ({ value, handleCloseGenrateQr }) => {
                         value={value}
                         viewBox={`300 0 256 256`}
                     />
-                </div>
-                <div className="qr-code-btn">
-                    {/* <button onClick={(e) => handleQrDownload()}>
-                        <p>Genrate QR</p>
-                        <img src={downloadIcon} alt="" />
-                    </button> */}
-                    <a href="https://web.whatsapp.com/send?text" data-action="share/whatsapp/share">Share via Whatsapp web</a>
                 </div>
             </div>
         </div>

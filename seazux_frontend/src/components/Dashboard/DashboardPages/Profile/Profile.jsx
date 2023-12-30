@@ -40,7 +40,6 @@ const Profile = () => {
           <p>Edit</p>
           <img src={edit} alt="" />
         </button>
-        {/* <button onClick={(e) => setShowDeleteModel(true)} style={{ "margin-left": "5px" }}> */}
         <button style={{ "margin-left": "5px" }}>
           <p>Change Password</p>
           <img src={edit} alt="" />
